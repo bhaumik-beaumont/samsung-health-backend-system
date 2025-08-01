@@ -12,6 +12,9 @@ jwk:
     super-tokens: ${super-tokens.url}/recipe/jwt/jwks
 
 spring:
+  config:
+    import:
+      - optional:file:./.env[.properties]
   profiles:
     active: local
   datasource:

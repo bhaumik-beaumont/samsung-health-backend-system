@@ -2,6 +2,7 @@ package researchstack.backend.adapter.outgoing.mongo.entity.study
 
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
+import java.time.Instant
 
 @Document("subjectStudyRelation")
 data class SubjectStudyRelationEntity(
@@ -11,7 +12,8 @@ data class SubjectStudyRelationEntity(
     val subjectNumber: String,
     val studyId: String,
     val signedInformedConsentImagePath: String,
-    val eligibilityTestResult: EligibilityTestResult?
+    val eligibilityTestResult: EligibilityTestResult?,
+    val enrollmentDate: Instant = Instant.now()
 ) {
     data class EligibilityTestResult(
         val result: SurveyResult

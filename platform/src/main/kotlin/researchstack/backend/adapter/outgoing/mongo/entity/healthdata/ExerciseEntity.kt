@@ -65,5 +65,7 @@ data class ExerciseEntity(
     @JsonProperty("max_rpm")
     val maxRpm: Double? = null,
     @JsonProperty("vo2_max")
-    val vo2Max: Double? = null
+    val vo2Max: Double? = null,
+    @JsonProperty("week_number")
+    val weekNumber: Long
 ) : HealthDataEntity

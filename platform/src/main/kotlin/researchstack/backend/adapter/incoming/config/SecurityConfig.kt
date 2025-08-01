@@ -10,5 +10,11 @@ import org.springframework.security.web.server.SecurityWebFilterChain
 @EnableWebFluxSecurity
 class SecurityConfig {
     @Bean
-    fun securityFilterChain(http: ServerHttpSecurity): SecurityWebFilterChain = http.build()
+    fun securityFilterChain(http: ServerHttpSecurity): SecurityWebFilterChain = http
+        .csrf { it.disable() } // disable CSRF for APIs
+        .authorizeExchange { exchanges ->
+            exchanges
+                .anyExchange().permitAll()
+        }
+        .build()
 }

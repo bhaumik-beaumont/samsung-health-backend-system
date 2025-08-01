@@ -10,6 +10,7 @@ import researchstack.backend.application.port.outgoing.study.ParticipateInStudyO
 import researchstack.backend.domain.study.EligibilityTestResult
 import researchstack.backend.domain.study.SignedInformedConsent
 import researchstack.backend.enums.SubjectStatus
+import java.time.Instant
 
 @ConditionalOnProperty(name = ["database-type"], havingValue = "MONGO")
 @Component
@@ -32,7 +33,8 @@ class CreateUserStudyRelationMongoAdapter(
                 subjectNumber,
                 studyId,
                 signedInformedConsent.imagePath,
-                eligibilityTestResult?.toEntity()
+                eligibilityTestResult?.toEntity(),
+                Instant.now()
             )
         ).awaitSingle()
     }

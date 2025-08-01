@@ -17,6 +17,7 @@ import researchstack.backend.domain.study.EligibilityTestResult
 import researchstack.backend.domain.study.SignedInformedConsent
 import researchstack.backend.domain.task.TaskResult
 import researchstack.backend.enums.SubjectStatus
+import java.time.Instant
 
 @ExperimentalCoroutinesApi
 internal class CreateUserStudyRelationMongoAdapterTest {
@@ -32,13 +33,15 @@ internal class CreateUserStudyRelationMongoAdapterTest {
         val sessionId = "test-session-id"
         val imagePath = "http://www.example.com/image"
         val eligibilityTestResult = EligibilityTestResult(TaskResult.SurveyResult(listOf()))
+        val testEnrollmentDate = Instant.parse("2025-07-29T14:23:00Z")
         val subjectStudyRelationEntity = SubjectStudyRelationEntity(
             null,
             userId,
             subjectNumber,
             studyId,
             imagePath,
-            eligibilityTestResult.toEntity()
+            eligibilityTestResult.toEntity(),
+            testEnrollmentDate
         )
 
         every {
@@ -49,7 +52,8 @@ internal class CreateUserStudyRelationMongoAdapterTest {
             subjectNumber,
             studyId,
             imagePath,
-            eligibilityTestResult.toEntity()
+            eligibilityTestResult.toEntity(),
+            testEnrollmentDate
         ).toMono()
 
         assertDoesNotThrow {

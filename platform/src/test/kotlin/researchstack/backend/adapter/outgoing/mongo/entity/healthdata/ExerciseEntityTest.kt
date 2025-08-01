@@ -41,7 +41,8 @@ internal class ExerciseEntityTest {
         meanPower = 250.0,
         meanRpm = 60.0,
         maxRpm = 70.0,
-        vo2Max = 65.0
+        vo2Max = 65.0,
+        weekNumber = 0L
     )
 
     @Test

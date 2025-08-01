@@ -10,7 +10,7 @@ enum class HealthDataGroupId(
 
     companion object {
         private val healthDataGroupTypeMap = mapOf(
-            "samsunghealthlegacy" to listOf(
+            "samsunghealth" to listOf(
                 "BLOOD_GLUCOSE",
                 "BLOOD_PRESSURE",
                 "EXERCISE",
