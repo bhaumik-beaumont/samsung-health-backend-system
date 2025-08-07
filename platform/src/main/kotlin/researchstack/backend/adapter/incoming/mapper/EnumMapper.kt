@@ -133,6 +133,7 @@ fun HealthDataType.toGrpc(): GrpcHealthDataType =
         HealthDataType.DEVICE_STAT_WEAR_BATTERY -> GrpcHealthDataType.HEALTH_DATA_TYPE_DEVICE_STAT_WEAR_BATTERY
         HealthDataType.DEVICE_STAT_WEAR_OFF_BODY -> GrpcHealthDataType.HEALTH_DATA_TYPE_DEVICE_STAT_WEAR_OFF_BODY
         HealthDataType.DEVICE_STAT_WEAR_POWER_ON_OFF -> GrpcHealthDataType.HEALTH_DATA_TYPE_DEVICE_STAT_WEAR_POWER_ON_OFF
+        HealthDataType.USER_COMPLIANCE -> GrpcHealthDataType.HEALTH_DATA_TYPE_USER_COMPLIANCE
         else -> throw IllegalArgumentException("unsupported HealthDataType")
     }
 
@@ -172,6 +173,7 @@ fun GrpcHealthDataType.toDomain(): HealthDataType =
         GrpcHealthDataType.HEALTH_DATA_TYPE_DEVICE_STAT_WEAR_BATTERY -> HealthDataType.DEVICE_STAT_WEAR_BATTERY
         GrpcHealthDataType.HEALTH_DATA_TYPE_DEVICE_STAT_WEAR_OFF_BODY -> HealthDataType.DEVICE_STAT_WEAR_OFF_BODY
         GrpcHealthDataType.HEALTH_DATA_TYPE_DEVICE_STAT_WEAR_POWER_ON_OFF -> HealthDataType.DEVICE_STAT_WEAR_POWER_ON_OFF
+        GrpcHealthDataType.HEALTH_DATA_TYPE_USER_COMPLIANCE -> HealthDataType.USER_COMPLIANCE
         else -> throw IllegalArgumentException("unsupported HealthDataType")
     }
 

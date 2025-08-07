@@ -34,6 +34,7 @@ enum class HealthDataType(
     WEAR_ECG("WearEcg"),
     GYROSCOPE("GyroScope"),
     WEAR_BLOOD_PRESSURE("WearBloodPressure"),
+    USER_COMPLIANCE("UserCompliance"),
     DEVICE_STAT_MOBILE_WEAR_CONNECTION("DeviceStatMobileWearConnection"),
     DEVICE_STAT_WEAR_BATTERY("DeviceStatWearBattery"),
     DEVICE_STAT_WEAR_OFF_BODY("DeviceStatWearOffBody"),

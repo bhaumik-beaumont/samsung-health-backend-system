@@ -45,5 +45,6 @@ fun HealthDataType.toHealthDataEntityClass() =
         HealthDataType.WEAR_SPO2 -> WearSpo2Entity::class.java
         HealthDataType.WEAR_SWEAT_LOSS -> WearSweatLossEntity::class.java
         HealthDataType.WEIGHT -> WeightEntity::class.java
+        HealthDataType.USER_COMPLIANCE -> UserCompliance::class.java
         else -> throw IllegalArgumentException("Unsupported data type: $this")
     }
