@@ -117,7 +117,8 @@ class SubjectGrpcController(
             request.subjectProfile.address,
             request.subjectProfile.officePhoneNumber,
             request.subjectProfile.company,
-            request.subjectProfile.team
+            request.subjectProfile.team,
+            gender = request.subjectProfile.gender
         )
         updateSubjectProfileUseCase.updateSubjectProfile(SubjectId.from(userId), updateSubjectProfileCommand)
         return Empty.newBuilder().build()

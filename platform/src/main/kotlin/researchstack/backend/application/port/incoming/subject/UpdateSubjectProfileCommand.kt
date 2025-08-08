@@ -1,5 +1,6 @@
 package researchstack.backend.application.port.incoming.subject
 
+import com.nimbusds.openid.connect.sdk.claims.Gender
 import researchstack.backend.application.service.mapper.SubjectMapper
 import researchstack.backend.domain.subject.Subject
 
@@ -14,7 +15,8 @@ data class UpdateSubjectProfileCommand(
     val address: String,
     val officePhoneNumber: String? = null,
     val company: String? = null,
-    val team: String? = null
+    val team: String? = null,
+    val gender: Int = 0,
 ) {
     fun toDomain(subjectId: String): Subject = SubjectMapper.INSTANCE.toDomain(this, subjectId)
 }

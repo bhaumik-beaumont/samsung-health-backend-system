@@ -12,7 +12,8 @@ data class Subject(
     val address: String,
     val officePhoneNumber: String? = null,
     val company: String? = null,
-    val team: String? = null
+    val team: String? = null,
+    val gender: Int = 2,
 ) {
     companion object {
         fun new(
@@ -27,7 +28,8 @@ data class Subject(
             address: String,
             officePhoneNumber: String? = null,
             company: String? = null,
-            team: String? = null
+            team: String? = null,
+            gender:Int = 2
         ): Subject =
             Subject(
                 SubjectId.from(subjectId),
@@ -41,7 +43,8 @@ data class Subject(
                 address,
                 officePhoneNumber,
                 company,
-                team
+                team,
+                gender
             )
     }
 

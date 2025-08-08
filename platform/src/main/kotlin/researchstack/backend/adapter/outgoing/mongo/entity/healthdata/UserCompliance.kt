@@ -18,6 +18,7 @@ data class UserCompliance(
     val biaRecordCount: Int,
     val weightRecordCount: Int,
     val timestamp: Timestamp,
+    val avgWeight: Float = 0F,
     @JsonProperty("time_offset")
     val timeOffset: String? = null
 ) : HealthDataEntity
