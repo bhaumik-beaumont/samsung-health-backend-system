@@ -1,6 +1,5 @@
 package researchstack.backend.application.port.incoming.subject
 
-import com.nimbusds.openid.connect.sdk.claims.Gender
 import researchstack.backend.application.service.mapper.SubjectMapper
 import researchstack.backend.domain.subject.Subject
 

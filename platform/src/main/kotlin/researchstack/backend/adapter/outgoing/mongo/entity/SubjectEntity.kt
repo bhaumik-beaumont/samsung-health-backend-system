@@ -18,5 +18,5 @@ data class SubjectEntity(
     val officePhoneNumber: String? = null,
     val company: String? = null,
     val team: String? = null,
-    val gender: Int = 2,
+    val gender: Int = 2
 )
