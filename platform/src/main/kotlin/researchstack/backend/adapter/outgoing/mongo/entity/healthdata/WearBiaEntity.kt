@@ -21,6 +21,7 @@ data class WearBiaEntity(
     val measurementProgress: Double,
     val status: Long,
     val timestamp: Timestamp,
+    val weekNumber: Long,
     @JsonProperty("time_offset")
     val timeOffset: String? = null
 ) : HealthDataEntity

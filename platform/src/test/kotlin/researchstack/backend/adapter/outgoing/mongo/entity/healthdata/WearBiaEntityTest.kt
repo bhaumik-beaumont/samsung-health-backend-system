@@ -28,7 +28,8 @@ internal class WearBiaEntityTest {
             measurementProgress = 100.0,
             status = 1L,
             timestamp = Timestamp.valueOf("2023-01-01 12:00:00"),
-            timeOffset = "UTC+9"
+            timeOffset = "UTC+9",
+            weekNumber = 0
         )
 
         assertEquals("wearBiaId", wearBiaEntity.id)
@@ -63,7 +64,8 @@ internal class WearBiaEntityTest {
             totalBodyWater = 50.0,
             measurementProgress = 100.0,
             status = 1L,
-            timestamp = Timestamp.valueOf("2023-01-01 12:00:00")
+            timestamp = Timestamp.valueOf("2023-01-01 12:00:00"),
+            weekNumber = 0
         )
 
         assertEquals("wearBiaId", wearBiaEntity.id)
