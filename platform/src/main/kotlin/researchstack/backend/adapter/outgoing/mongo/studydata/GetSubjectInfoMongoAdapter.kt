@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component
 import researchstack.backend.adapter.outgoing.mongo.entity.studydata.SubjectInfoEntity
 import researchstack.backend.adapter.outgoing.mongo.mapper.toDomain
 import researchstack.backend.adapter.outgoing.mongo.repository.SubjectInfoRepository
+import researchstack.backend.adapter.outgoing.mongo.repository.SubjectRepository
 import researchstack.backend.application.port.outgoing.studydata.GetSubjectInfoOutPort
 import researchstack.backend.domain.subject.SubjectInfo
 import researchstack.backend.enums.SubjectStatus
@@ -21,6 +22,7 @@ import kotlin.reflect.full.declaredMemberProperties
 @Component
 class GetSubjectInfoMongoAdapter(
     private val subjectInfoRepository: SubjectInfoRepository,
+    private val subjectRepository: SubjectRepository,
     private val reactiveMongoTemplate: ReactiveMongoTemplate
 ) : GetSubjectInfoOutPort {
     override suspend fun getSubjectInfoList(studyId: String, page: Long?, size: Long?): List<SubjectInfo> {
@@ -44,11 +46,16 @@ class GetSubjectInfoMongoAdapter(
             )
         }
 
-        return reactiveMongoTemplate
+        val listSubjectInfo = reactiveMongoTemplate
             .aggregate(aggregation, "subjectInfo", SubjectInfoEntity::class.java)
             .collectList()
             .awaitSingle()
             .map { it.toDomain() }
+            .map { subjectInfo ->
+                val subject = subjectRepository.findById(subjectInfo.subjectId).awaitSingle().toDomain()
+                subjectInfo.copy(gender = subject.gender)
+            }
+        return listSubjectInfo
     }
 
     override suspend fun getSubjectInfoListCount(studyId: String): Long {

@@ -11,5 +11,6 @@ data class SubjectInfoResponse(
     val subjectId: String,
     val lastSyncTime: LocalDateTime?,
     val totalTaskCount: Number?,
-    val undoneTaskList: List<TaskSpecSummary>?
+    val undoneTaskList: List<TaskSpecSummary>?,
+    val gender: Int
 )

@@ -14,15 +14,18 @@ import researchstack.backend.POSITIVE_TEST
 import researchstack.backend.adapter.outgoing.mongo.entity.studydata.SubjectInfoEntity
 import researchstack.backend.adapter.outgoing.mongo.mapper.toDomain
 import researchstack.backend.adapter.outgoing.mongo.repository.SubjectInfoRepository
+import researchstack.backend.adapter.outgoing.mongo.repository.SubjectRepository
 import researchstack.backend.enums.SubjectStatus
 import kotlin.test.assertEquals
 
 @ExperimentalCoroutinesApi
 internal class GetSubjectInfoMongoAdapterTest {
     private val subjectInfoRepository = mockk<SubjectInfoRepository>()
+    private val subjectRepository = mockk<SubjectRepository>()
     private val reactiveMongoTemplate = mockk<ReactiveMongoTemplate>()
     private val getSubjectInfoMongoAdapter = GetSubjectInfoMongoAdapter(
         subjectInfoRepository,
+        subjectRepository,
         reactiveMongoTemplate
     )
     private val studyId = "test-study-id"

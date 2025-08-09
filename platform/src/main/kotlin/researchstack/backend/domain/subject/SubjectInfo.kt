@@ -6,5 +6,6 @@ data class SubjectInfo(
     val studyId: String,
     val subjectNumber: String,
     var status: SubjectStatus = SubjectStatus.PARTICIPATING,
-    val subjectId: String
+    val subjectId: String,
+    val gender: Int = 2
 )
