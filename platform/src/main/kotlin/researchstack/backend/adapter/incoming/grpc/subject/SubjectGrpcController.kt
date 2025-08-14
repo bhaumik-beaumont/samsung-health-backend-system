@@ -48,7 +48,9 @@ class SubjectGrpcController(
             request.subjectProfile.address,
             request.subjectProfile.officePhoneNumber,
             request.subjectProfile.company,
-            request.subjectProfile.team
+            request.subjectProfile.team,
+            request.subjectProfile.gender,
+            request.subjectProfile.enrolmentDate
         )
         registerSubjectUseCase.registerSubject(registerSubjectCommand)
         return Empty.newBuilder().build()
@@ -83,6 +85,8 @@ class SubjectGrpcController(
             .setOfficePhoneNumber(subjectProfile.officePhoneNumber)
             .setCompany(subjectProfile.company)
             .setTeam(subjectProfile.team)
+            .setGender(subjectProfile.gender)
+            .setEnrolmentDate(subjectProfile.enrolmentDate)
             .build()
 
         val response = GetSubjectProfileResponse.newBuilder()
@@ -118,7 +122,8 @@ class SubjectGrpcController(
             request.subjectProfile.officePhoneNumber,
             request.subjectProfile.company,
             request.subjectProfile.team,
-            gender = request.subjectProfile.gender
+            request.subjectProfile.gender,
+            request.subjectProfile.enrolmentDate
         )
         updateSubjectProfileUseCase.updateSubjectProfile(SubjectId.from(userId), updateSubjectProfileCommand)
         return Empty.newBuilder().build()

@@ -15,7 +15,8 @@ data class UpdateSubjectProfileCommand(
     val officePhoneNumber: String? = null,
     val company: String? = null,
     val team: String? = null,
-    val gender: Int = 0
+    val gender: Int = 0,
+    val enrolmentDate: String? = null
 ) {
     fun toDomain(subjectId: String): Subject = SubjectMapper.INSTANCE.toDomain(this, subjectId)
 }
