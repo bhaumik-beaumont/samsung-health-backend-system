@@ -86,7 +86,7 @@ class SubjectGrpcController(
             .setCompany(subjectProfile.company)
             .setTeam(subjectProfile.team)
             .setGender(subjectProfile.gender)
-            .setEnrolmentDate(subjectProfile.enrolmentDate)
+            .setEnrolmentDate(subjectProfile.enrolmentDate ?: "")
             .build()
 
         val response = GetSubjectProfileResponse.newBuilder()
